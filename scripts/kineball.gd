@@ -31,7 +31,7 @@ func _physics_process(_delta):
 	vec_pos.y += gravity
 	#vec_pos.z += wind
 	
-	if Input.is_action_pressed("jump"):
+	if Input.is_action_pressed("jump") and is_on_floor():
 		vec_pos.y = jump_force
 		
 	vec_pos = move_and_slide(Vector3(0, vec_pos.y, vec_pos.z),Vector3.UP)
