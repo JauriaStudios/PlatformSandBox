@@ -1190,7 +1190,8 @@ transform = Transform( -0.75, 0, 1.13247e-07, 0, 0.75, 0, -1.13247e-07, 0, -0.75
 script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="Model"]
-transform = Transform( -0.00133262, 0.223074, -1.31454, 0.0095885, 1.31451, 0.223058, 1.3333, -0.00923041, -0.00291801, -26.1135, 8.26426, -0.0575943 )
+transform = Transform( -0.000688846, -0.0510428, -1.33236, 0.00956481, 1.33232, -0.0510464, 1.3333, -0.00958417, -0.000322163, -45.5795, 6.6752, -0.0575905 )
+fov = 47.8125
 
 [node name="Timer" type="Timer" parent="Model"]
 
@@ -1216,11 +1217,11 @@ wait_time = 0.1
 [connection signal="body_entered" from="Enemies/E-group1/Enemy6" to="Model" method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Enemies/E-group1/Enemy7" to="Model" method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Coins/coinh1/Coin" to="Coins/coinh1/Coin" method="_on_Coin_body_entered"]
-[connection signal="cn_collected" from="Coins/coinh1/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="cn_collected" from="Coins/coinh1/Coin" to="Model" method="_on_Coin_cn_collected"]
+[connection signal="cn_collected" from="Coins/coinh1/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="body_entered" from="Coins/coinh2/Coin" to="Coins/coinh2/Coin" method="_on_Coin_body_entered"]
-[connection signal="cn_collected" from="Coins/coinh2/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="cn_collected" from="Coins/coinh2/Coin" to="Model" method="_on_Coin_cn_collected"]
+[connection signal="cn_collected" from="Coins/coinh2/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="body_entered" from="triggers/t1" to="Model" method="_on_t1_body_entered"]
 [connection signal="body_entered" from="triggers/t2" to="Model" method="_on_t2_body_entered"]
 [connection signal="ready" from="Model" to="Coins/coinh1/Coin" method="_on_Model_ready"]
