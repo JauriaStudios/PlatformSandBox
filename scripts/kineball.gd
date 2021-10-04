@@ -2,11 +2,11 @@ extends KinematicBody
 
 #var rand_generate = RandomNumberGenerator.new()
 var vec_pos = Vector3(0,0,0) 
-var speed = 15
+var speed = 10
 var rotspeed= 9
-var gravity= -5
+var gravity= -2
 #var wind = 0.0
-var jump_force = 60
+var jump_force = 45
 
 var max_jumps = 3
 var jumps_count = 0

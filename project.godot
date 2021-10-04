@@ -14,7 +14,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="3D Platformer Template"
+config/name="JuegoLoco5"
 run/main_scene="res://scenes/Level.tscn"
 config/icon="res://icon.png"
 
