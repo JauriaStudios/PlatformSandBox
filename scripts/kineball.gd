@@ -2,11 +2,11 @@ extends KinematicBody
 
 #var rand_generate = RandomNumberGenerator.new()
 var vec_pos = Vector3(0,0,0) 
-var speed = 20
-var rotspeed = 9
-var gravity = -5
+var speed = 16
+var rotspeed = 10
+var gravity = -7
 #var wind = 0.0
-var jump_force = 105
+var jump_force = 90
 
 var max_jumps = 3
 var jumps_count = 0
@@ -15,29 +15,43 @@ var player_rotation = 0
 var rotating_left = false
 var rotating_right = false
 
+var player_rotation_crouch = 0
+var rotating_left_crouch = false
+var rotating_right_crouch = false
+
 func _ready():
 	pass
 
 # Physics Loop
 func _physics_process(_delta):
 	
-	
 	var y = 0
 	
 	# input handler
+	
+	# No move
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
 		vec_pos.z=0
-		
+	
+	# Crouch Right
 	elif Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
 		vec_pos.z=-speed
-		
+		if $personaje3.rotation.y <= 90 and $personaje3.rotation.y <= 0:
+			rotating_right_crouch = true
+			player_rotation = _delta * rotspeed
+			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
 		
+	# Crouch Left
 	elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
 		vec_pos.z=speed
-		
-		$personaje3/AnimationPlayer.play("crouch_walk_back-loop")
-		
+		if $personaje3.rotation.y >= 0 and $personaje3.rotation.y <= 90:
+			rotating_left_crouch = true
+			player_rotation = _delta * rotspeed
+			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+	
+	# Move Right
 	elif Input.is_action_pressed("ui_right"):
 		vec_pos.z=-speed
 		if $personaje3.rotation.y <= 90 and $personaje3.rotation.y <= 0:
@@ -46,32 +60,52 @@ func _physics_process(_delta):
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 			
 		$personaje3/AnimationPlayer.play("walk_forward-loop")
-		
+	
+	# Move Left
 	elif Input.is_action_pressed("ui_left"):
 		vec_pos.z=speed
 		if $personaje3.rotation.y >= 0 and $personaje3.rotation.y <= 90:
 			rotating_left = true
 			player_rotation = _delta * rotspeed
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
-		$personaje3/AnimationPlayer.play("walk_backward-loop")
-		
+		$personaje3/AnimationPlayer.play("walk_forward-loop")
+	
+	# Crouch
 	elif Input.is_action_pressed("ui_down"):
 		$personaje3/AnimationPlayer.play("crouch-loop")
 		vec_pos.z= lerp(vec_pos.z,0,0.2)
-		
+	
+	
 	else:
 		$personaje3/AnimationPlayer.play("fall_down-loop")
 		vec_pos.z= lerp(vec_pos.z,0,0.2)
 	
+	# Stop rotation when player in position
 	if $personaje3.rotation.y >= 0 and rotating_right == true:
 		rotating_right = false
-	elif $personaje3.rotation.y <= 180 and rotating_left == true:
+	elif $personaje3.rotation.y <= 0 and rotating_left == true:
 		rotating_left = false
-		
+	
+	if $personaje3.rotation.y >= 0 and rotating_right_crouch == true:
+		rotating_right_crouch = false
+	elif $personaje3.rotation.y <= 0 and rotating_left_crouch == true:
+		rotating_left_crouch = false
+	
+	# keep rotation if button released before reach the end of the animation
+	if rotating_right_crouch == true:
+		$personaje3.rotate(Vector3(0, 1, 0), _delta * rotspeed)
+		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+	elif rotating_left_crouch == true:
+		$personaje3.rotate(Vector3(0, 1, 0), _delta * rotspeed)
+		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+	
+		# keep rotation if button released before reach the end of the animation
 	if rotating_right == true:
 		$personaje3.rotate(Vector3(0, 1, 0), _delta * rotspeed)
+		$personaje3/AnimationPlayer.play("walk_forward-loop")
 	elif rotating_left == true:
 		$personaje3.rotate(Vector3(0, 1, 0), _delta * rotspeed)
+		$personaje3/AnimationPlayer.play("walk_forward-loop")
 	
 	# wind = rand_generate.randf_range(-1.0, 1.0)
 	
@@ -80,7 +114,7 @@ func _physics_process(_delta):
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
 		vec_pos.y = jump_force
-		
+	
 	vec_pos = move_and_slide(Vector3(0, vec_pos.y, vec_pos.z),Vector3.UP)
 
 
