@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/characters/edelbert.glb" type="PackedScene" id=1]
+[ext_resource path="res://assets/characters/edelbert.gd" type="Script" id=2]
+[ext_resource path="res://assets/shaders/crt_material.tres" type="Material" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.3578 )
+
+[node name="edelbert" parent="." instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 71.7344
+margin_top = 413.417
+margin_right = 249.734
+margin_bottom = 530.417
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 73.6222
+margin_top = 249.183
+margin_right = 251.622
+margin_bottom = 366.183
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 69.8467
+margin_top = 90.6119
+margin_right = 247.847
+margin_bottom = 207.612
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="."]
+margin_left = 777.752
+margin_top = 98.1629
+margin_right = 955.752
+margin_bottom = 215.163
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="."]
+margin_left = 777.752
+margin_top = 254.846
+margin_right = 955.752
+margin_bottom = 371.846
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="."]
+margin_left = 772.089
+margin_top = 407.754
+margin_right = 950.089
+margin_bottom = 524.754
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource( 3 )
+margin_right = 1022.0
+margin_bottom = 598.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

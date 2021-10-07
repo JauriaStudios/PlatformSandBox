@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/gui/ball00_transparent.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Ubuntu-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/Control.gd" type="Script" id=3]
 
@@ -20,24 +19,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0, 0.466667, 0.670588, 1 )
-
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1090.0
-margin_bottom = 614.0
-texture = ExtResource( 1 )
-expand = true
-
-[node name="Button" type="Button" parent="."]
-margin_left = 722.633
-margin_top = 453.796
-margin_right = 966.633
-margin_bottom = 546.796
+[node name="level_button" type="Button" parent="."]
+margin_left = 112.664
+margin_top = 477.934
+margin_right = 356.664
+margin_bottom = 570.934
 custom_fonts/font = SubResource( 1 )
-text = "Test"
+text = "Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="console_button" type="Button" parent="."]
+margin_left = 671.592
+margin_top = 476.745
+margin_right = 915.591
+margin_bottom = 569.745
+custom_fonts/font = SubResource( 1 )
+text = "Console"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,4 +53,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="level_button" to="." method="_on_level_button_pressed"]
+[connection signal="pressed" from="console_button" to="." method="_on_console_button_pressed"]

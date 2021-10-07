@@ -19,8 +19,12 @@ var player_rotation_crouch = 0
 var rotating_left_crouch = false
 var rotating_right_crouch = false
 
+var crouching = false
+var prev_crouching = false
+
+
 func _ready():
-	pass
+	  pass
 
 # Physics Loop
 func _physics_process(_delta):
@@ -72,13 +76,25 @@ func _physics_process(_delta):
 	
 	# Crouch
 	elif Input.is_action_pressed("ui_down"):
+		crouching = true
+		
 		$personaje3/AnimationPlayer.play("crouch-loop")
 		vec_pos.z= lerp(vec_pos.z,0,0.2)
-	
+		
+		
+		$ballColl.scale.z = $ballColl.scale.z / 2
+		$ballColl.translation.y = $ballColl.translation.y / 2
+		
 	
 	else:
 		$personaje3/AnimationPlayer.play("fall_down-loop")
 		vec_pos.z= lerp(vec_pos.z,0,0.2)
+		if crouching == true and prev_crouching == true:
+			$ballColl.scale.z = 1
+			$ballColl.translation.y = $ballColl.translation.y * 2
+			crouching = false
+			prev_crouching = false
+		
 	
 	# Stop rotation when player in position
 	if $personaje3.rotation.y >= 0 and rotating_right == true:

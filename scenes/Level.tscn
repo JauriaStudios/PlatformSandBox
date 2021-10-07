@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://assets/characters/ball00.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/kineball.gd" type="Script" id=2]
@@ -22,7 +22,7 @@
 [ext_resource path="res://scripts/triggers.gd" type="Script" id=20]
 [ext_resource path="res://animations/d1animp.tres" type="Animation" id=21]
 [ext_resource path="res://assets/objects/edelbert.glb" type="PackedScene" id=22]
-[ext_resource path="res://scripts/npc.gd" type="Script" id=23]
+[ext_resource path="res://assets/characters/enemigo1.glb" type="PackedScene" id=23]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 4 )
@@ -189,6 +189,8 @@ font_data = ExtResource( 15 )
 [sub_resource type="DynamicFont" id=39]
 size = 50
 font_data = ExtResource( 15 )
+
+[sub_resource type="BoxShape" id=40]
 
 [node name="Level" type="Spatial"]
 
@@ -1198,14 +1200,14 @@ fov = 47.8125
 [node name="Timer2" type="Timer" parent="Model"]
 wait_time = 0.1
 
-[node name="Model2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 1.26947e-09, 1.74841e-07, 0, 0.999974, -0.00726051, -1.74846e-07, 0.00726051, 0.999974, 0.046742, 0.504208, -4.94968 )
-script = ExtResource( 23 )
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9453 )
 
-[node name="Timer" type="Timer" parent="Model2"]
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+shape = SubResource( 40 )
 
-[node name="Timer2" type="Timer" parent="Model2"]
-wait_time = 0.1
+[node name="enemigo1" parent="KinematicBody/CollisionShape" instance=ExtResource( 23 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.204278, 0 )
 
 [connection signal="body_entered" from="Platforms/finish/finish_area" to="Model" method="_on_finish_area_body_entered"]
 [connection signal="body_entered" from="Abyss" to="Model" method="_on_Abyss_body_entered"]
@@ -1217,15 +1219,13 @@ wait_time = 0.1
 [connection signal="body_entered" from="Enemies/E-group1/Enemy6" to="Model" method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Enemies/E-group1/Enemy7" to="Model" method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Coins/coinh1/Coin" to="Coins/coinh1/Coin" method="_on_Coin_body_entered"]
-[connection signal="cn_collected" from="Coins/coinh1/Coin" to="Model" method="_on_Coin_cn_collected"]
 [connection signal="cn_collected" from="Coins/coinh1/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
+[connection signal="cn_collected" from="Coins/coinh1/Coin" to="Model" method="_on_Coin_cn_collected"]
 [connection signal="body_entered" from="Coins/coinh2/Coin" to="Coins/coinh2/Coin" method="_on_Coin_body_entered"]
-[connection signal="cn_collected" from="Coins/coinh2/Coin" to="Model" method="_on_Coin_cn_collected"]
 [connection signal="cn_collected" from="Coins/coinh2/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
+[connection signal="cn_collected" from="Coins/coinh2/Coin" to="Model" method="_on_Coin_cn_collected"]
 [connection signal="body_entered" from="triggers/t1" to="Model" method="_on_t1_body_entered"]
 [connection signal="body_entered" from="triggers/t2" to="Model" method="_on_t2_body_entered"]
 [connection signal="ready" from="Model" to="Coins/coinh1/Coin" method="_on_Model_ready"]
 [connection signal="timeout" from="Model/Timer" to="Model" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Model/Timer2" to="Model" method="_on_Timer2_timeout"]
-[connection signal="timeout" from="Model2/Timer" to="Model2" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Model2/Timer2" to="Model2" method="_on_Timer2_timeout"]
