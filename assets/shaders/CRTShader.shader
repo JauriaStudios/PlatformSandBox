@@ -4,7 +4,7 @@ uniform float screen_width = 1024;
 uniform float screen_height = 600;
 
 // Curvature
-uniform float BarrelPower =1.1;
+uniform float BarrelPower = 1.1;
 // Color bleeding
 uniform float color_bleeding = 1.2;
 uniform float bleeding_range_x = 3;
