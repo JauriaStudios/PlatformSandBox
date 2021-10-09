@@ -1012,7 +1012,7 @@ shape = SubResource( 23 )
 anims/d2rsanimp = SubResource( 25 )
 
 [node name="sunlight" type="DirectionalLight" parent="."]
-transform = Transform( 1, -0.00025234, 0.000265818, -0.000366516, -0.688481, 0.725254, 0, -0.725254, -0.688481, 0, 23.5617, 0 )
+transform = Transform( 1, -0.000252339, 0.000265817, -0.000366516, -0.688481, 0.725254, 0, -0.725254, -0.688481, 0, 23.5617, 0 )
 shadow_enabled = true
 shadow_color = Color( 0.160784, 0.160784, 0.160784, 1 )
 
