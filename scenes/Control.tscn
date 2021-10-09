@@ -20,10 +20,10 @@ __meta__ = {
 }
 
 [node name="level_button" type="Button" parent="."]
-margin_left = 112.664
-margin_top = 477.934
-margin_right = 356.664
-margin_bottom = 570.934
+margin_left = 117.421
+margin_top = 466.042
+margin_right = 361.421
+margin_bottom = 559.042
 custom_fonts/font = SubResource( 1 )
 text = "Level"
 __meta__ = {
@@ -31,10 +31,10 @@ __meta__ = {
 }
 
 [node name="console_button" type="Button" parent="."]
-margin_left = 671.592
-margin_top = 476.745
-margin_right = 915.591
-margin_bottom = 569.745
+margin_left = 663.268
+margin_top = 467.231
+margin_right = 907.267
+margin_bottom = 560.231
 custom_fonts/font = SubResource( 1 )
 text = "Console"
 __meta__ = {

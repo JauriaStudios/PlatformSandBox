@@ -8,7 +8,7 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.30163, -3.91109, 13.3789 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08146, -3.91109, 13.3789 )
 
 [node name="edelbert" parent="." instance=ExtResource( 1 )]
 transform = Transform( 0.884412, 0.156569, 0.439661, 0.00373745, 0.939643, -0.342137, -0.466692, 0.304233, 0.830446, -0.0379181, -0.0754433, 0.0118256 )
@@ -18,30 +18,30 @@ script = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254395, 3.86095 )
 
 [node name="Button3" type="Button" parent="."]
-margin_left = 446.419
-margin_top = 269.453
-margin_right = 624.42
-margin_bottom = 386.453
+margin_left = 507.868
+margin_top = 263.096
+margin_right = 685.869
+margin_bottom = 380.096
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button4" type="Button" parent="."]
-margin_left = 455.407
-margin_top = 87.2521
-margin_right = 633.407
-margin_bottom = 204.252
+margin_left = 507.321
+margin_top = 123.274
+margin_right = 685.321
+margin_bottom = 240.274
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button5" type="Button" parent="."]
-margin_left = 767.79
-margin_top = 83.8847
-margin_right = 945.791
-margin_bottom = 200.885
+margin_left = 763.552
+margin_top = 125.204
+margin_right = 941.553
+margin_bottom = 242.204
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -68,30 +68,30 @@ __meta__ = {
 }
 
 [node name="Button8" type="Button" parent="."]
-margin_left = 445.297
-margin_top = 425.285
-margin_right = 623.298
-margin_bottom = 542.286
+margin_left = 506.746
+margin_top = 426.344
+margin_right = 684.747
+margin_bottom = 543.345
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button9" type="Button" parent="."]
-margin_left = 108.558
-margin_top = 271.698
-margin_right = 286.559
-margin_bottom = 388.698
+margin_left = 257.942
+margin_top = 429.558
+margin_right = 435.943
+margin_bottom = 546.558
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button10" type="Button" parent="."]
-margin_left = 110.803
-margin_top = 423.04
-margin_right = 288.804
-margin_bottom = 540.041
+margin_left = 26.046
+margin_top = 428.337
+margin_right = 204.047
+margin_bottom = 545.338
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -101,15 +101,16 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = ExtResource( 3 )
-margin_top = 0.318237
-margin_right = 1024.0
-margin_bottom = 600.318
+margin_left = 40.8919
+margin_top = 36.5351
+margin_right = 424.892
+margin_bottom = 290.535
 input_pass_on_modal_close_click = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CRTFrame" type="Sprite" parent="CanvasLayer/ColorRect"]
-position = Vector2( 512.092, 299.767 )
-scale = Vector2( 0.946695, 0.739502 )
+position = Vector2( 193.558, 127.024 )
+scale = Vector2( 0.355705, 0.314 )
 texture = ExtResource( 4 )

@@ -1,7 +1,7 @@
 shader_type canvas_item;
 
-uniform float screen_width = 1024;
-uniform float screen_height = 600;
+uniform float screen_width = 384;
+uniform float screen_height = 254;
 
 // Curvature
 uniform float BarrelPower = 1.1;
