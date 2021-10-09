@@ -1,13 +1,10 @@
 # Blender MTL File: 'mapa1.blend'
 # Material Count: 1
 
-newmtl Material
-Ns 124.584981
-Ka 0.463235 0.463235 0.463235
-Kd 0.152325 0.124472 0.082137
-Ks 0.463235 0.463235 0.463235
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 3
-map_Kd -o 10.000000 0.000000 0.000000 -s 0.550000 0.550000 0.550000 C:\\Users\\pepo_\\OneDrive\\Imágenes\\texturas\\TexturesCom_MetalBare0204_1_M.jpg
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
