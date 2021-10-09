@@ -22,6 +22,11 @@ var rotating_right_crouch = false
 var crouching = false
 var prev_crouching = false
 
+var slash_timer = 0
+var slash_max = 700
+var prev_slash = 0
+var slash_count = 0
+
 
 func _ready():
 	  pass
@@ -125,11 +130,29 @@ func _physics_process(_delta):
 	
 	# wind = rand_generate.randf_range(-1.0, 1.0)
 	
-	vec_pos.y += gravity
-	#vec_pos.z += wind
+	if is_on_floor():
+		slash_count = 0
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
 		vec_pos.y = jump_force
+		
+	if Input.is_action_pressed("run") and Input.is_action_pressed("ui_right"):
+		slash_timer = OS.get_system_time_msecs()
+		if slash_timer - prev_slash >= slash_max:
+			vec_pos.z = -jump_force
+			prev_slash = slash_timer
+			vec_pos.y += gravity
+			
+	
+	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_left"):
+		if slash_timer - prev_slash >= slash_max:
+			vec_pos.z = jump_force
+			prev_slash = slash_timer
+			vec_pos.y += gravity
+	else:
+		
+		vec_pos.y += gravity
+		#vec_pos.z += wind
 	
 	vec_pos = move_and_slide(Vector3(0, vec_pos.y, vec_pos.z),Vector3.UP)
 
