@@ -15,7 +15,7 @@ _global_script_class_icons={
 [application]
 
 config/name="JuegoLoco5"
-run/main_scene="res://scenes/Control.tscn"
+run/main_scene="res://scenes/control.tscn"
 config/icon="res://icon.png"
 
 [display]
