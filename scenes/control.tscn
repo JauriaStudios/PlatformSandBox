@@ -31,14 +31,14 @@ glow_bicubic_upscale = true
 offsets = PoolRealArray( 0, 0.898305, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.871186, 0.871186, 0.871186, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=7]
+[sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 5 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 1.0
-shader_param/mask = SubResource( 7 )
+shader_param/mask = SubResource( 5 )
 
 [node name="Control" type="Control"]
 margin_right = 1024.0
@@ -135,6 +135,7 @@ __meta__ = {
 environment = SubResource( 3 )
 
 [node name="fade_in" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0

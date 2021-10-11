@@ -1,16 +1,34 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/characters/edelbert.glb" type="PackedScene" id=1]
+[ext_resource path="res://scripts/console.gd" type="Script" id=2]
 [ext_resource path="res://assets/shaders/crt_material.tres" type="Material" id=3]
 [ext_resource path="res://assets/shaders/CRTFrame.png" type="Texture" id=4]
+[ext_resource path="res://scripts/edelbert.gd" type="Script" id=5]
 
 [node name="Spatial" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="edelbert" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.933602, 0.355635, 0.0437103, -0.295284, 0.832735, -0.468359, -0.202964, 0.424354, 0.882457, 0.124108, 0, 0.0822792 )
+script = ExtResource( 5 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.08146, -3.91109, 13.3789 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.90406, -5.09161, 15.0253 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.95803, 4.78231 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.02151, 4.78231 )
+light_energy = 3.61
+light_specular = 1.0
+omni_range = 43.5
+omni_attenuation = 9.57744e-05
+
+[node name="OmniLight2" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.27044, -0.201065, 3.21844 )
+light_energy = 3.61
+light_specular = 1.0
+omni_range = 43.5
+omni_attenuation = 9.57744e-05
 
 [node name="Control" type="Control" parent="."]
 margin_left = -2.0
@@ -119,5 +137,4 @@ position = Vector2( 193.558, 127.024 )
 scale = Vector2( 0.355705, 0.314 )
 texture = ExtResource( 4 )
 
-[node name="edelbert" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
+[connection signal="pressed" from="Control/Button7" to="." method="_on_Button7_pressed"]
