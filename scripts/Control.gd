@@ -2,14 +2,14 @@ extends Control
 
 
 func _ready():
-	pass 
+	pass
+
+func _on_video_options_button_pressed():
+	get_tree().change_scene("res://scenes/video.tscn")
 
 
-func _on_level_button_pressed():
-	get_tree().change_scene("res://scenes/stage_1.tscn")
-	
-func _on_level_button2_pressed():
-	get_tree().change_scene("res://scenes/options.tscn")
-	
-func _on_console_button_pressed():
-	get_tree().change_scene("res://scenes/console.tscn")
+func _on_CheckBox_toggled(button_pressed):
+	if button_pressed:
+		OS.set_window_fullscreen(true)
+	else:
+		OS.set_window_fullscreen(false)

@@ -33,39 +33,6 @@ position = Vector2( 516.99, 296.133 )
 scale = Vector2( 0.533827, 0.556619 )
 texture = ExtResource( 1 )
 
-[node name="game_options_button" type="Button" parent="."]
-margin_left = 409.45
-margin_top = 100.67
-margin_right = 653.45
-margin_bottom = 193.67
-custom_fonts/font = SubResource( 2 )
-text = "Game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="video_options_button" type="Button" parent="."]
-margin_left = 409.71
-margin_top = 209.189
-margin_right = 653.71
-margin_bottom = 302.189
-custom_fonts/font = SubResource( 2 )
-text = "Video"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="audio_options_button" type="Button" parent="."]
-margin_left = 412.888
-margin_top = 321.535
-margin_right = 656.887
-margin_bottom = 414.535
-custom_fonts/font = SubResource( 2 )
-text = "Audio"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="back_options_button" type="Button" parent="."]
 margin_left = 415.267
 margin_top = 433.321
@@ -79,20 +46,54 @@ __meta__ = {
 }
 
 [node name="options_title" type="Label" parent="."]
-margin_left = 465.0
-margin_top = 21.0
-margin_right = 608.0
-margin_bottom = 88.0
+margin_left = 382.945
+margin_top = 22.1892
+margin_right = 681.945
+margin_bottom = 89.1892
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "OTIONS"
+text = "VIDEO SETTINGS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="game_options_button" to="." method="_on_level_button_pressed"]
-[connection signal="pressed" from="video_options_button" to="." method="_on_video_options_button_pressed"]
-[connection signal="pressed" from="audio_options_button" to="." method="_on_console_button_pressed"]
+[node name="resolution_label" type="Label" parent="."]
+margin_left = 319.917
+margin_top = 125.65
+margin_right = 618.917
+margin_bottom = 192.65
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "RESOLUTION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="full_screen_label2" type="Label" parent="."]
+margin_left = 321.106
+margin_top = 186.3
+margin_right = 620.106
+margin_bottom = 253.3
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "FULLSCREEN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CheckBox" type="CheckBox" parent="."]
+margin_left = 577.949
+margin_top = 198.209
+margin_right = 626.949
+margin_bottom = 239.209
+size_flags_horizontal = 9
+align = 1
+
 [connection signal="pressed" from="back_options_button" to="back_options_button" method="_on_back_options_button_pressed"]
+[connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]
