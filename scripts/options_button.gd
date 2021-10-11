@@ -15,6 +15,3 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_options_button_pressed():
-	get_tree().change_scene("res://scenes/options.tscn")

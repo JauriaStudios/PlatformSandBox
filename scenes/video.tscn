@@ -1,64 +1,69 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/gui/cyber_interface2.png" type="Texture" id=1]
 [ext_resource path="res://fonts/BebasKai.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/Control.gd" type="Script" id=3]
+[ext_resource path="res://scripts/video.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://fonts/Ubuntu-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 40
-font_data = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 60
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+font_data = ExtResource( 2 )
 
-[node name="Control" type="Control"]
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Video" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -5.03967
 margin_top = 3.77975
 margin_right = -5.03967
-margin_bottom = 3.77979
+margin_bottom = 171.78
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="iu" type="Sprite" parent="."]
+[node name="background" type="Sprite" parent="."]
 position = Vector2( 516.99, 296.133 )
 scale = Vector2( 0.533827, 0.556619 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="back_options_button" type="Button" parent="."]
-margin_left = 415.267
-margin_top = 433.321
-margin_right = 659.266
-margin_bottom = 526.32
-custom_fonts/font = SubResource( 2 )
-text = "Back"
+margin_left = 468.514
+margin_top = 433.0
+margin_right = 602.514
+margin_bottom = 484.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+text = "BACK"
+flat = true
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="save_button" type="Button" parent="."]
-margin_left = 415.267
-margin_top = 322.321
-margin_right = 659.266
-margin_bottom = 415.32
-custom_fonts/font = SubResource( 2 )
-text = "Save"
+margin_left = 479.217
+margin_top = 349.352
+margin_right = 589.217
+margin_bottom = 421.352
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+text = "SAVE"
+flat = true
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -67,13 +72,12 @@ margin_left = 382.945
 margin_top = 22.1892
 margin_right = 681.945
 margin_bottom = 89.1892
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "VIDEO SETTINGS"
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -82,57 +86,72 @@ margin_left = 320.0
 margin_top = 126.0
 margin_right = 561.0
 margin_bottom = 192.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "RESOLUTION"
 __meta__ = {
-"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="fullscreen_label" type="Label" parent="."]
+margin_left = 318.5
+margin_top = 194.0
+margin_right = 559.5
+margin_bottom = 260.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "FULLSCREEN"
+__meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 576.222
-margin_top = 184.89
-margin_right = 686.222
-margin_bottom = 208.89
+margin_left = 606.0
+margin_top = 213.5
+margin_right = 685.0
+margin_bottom = 240.5
 size_flags_horizontal = 9
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 shortcut_in_tooltip = false
+text = "ENABLED"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="width_spin_box" type="SpinBox" parent="."]
-margin_left = 578.002
-margin_top = 144.849
-margin_right = 652.002
-margin_bottom = 168.849
+margin_left = 604.122
+margin_top = 128.5
+margin_right = 679.122
+margin_bottom = 152.5
 min_value = 1024.0
 max_value = 1920.0
-step = 256.0
+step = 128.0
+page = 128.0
 value = 1024.0
 exp_edit = true
 align = 2
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="height_spinbox" type="SpinBox" parent="."]
-margin_left = 653.517
-margin_top = 145.146
-margin_right = 727.517
-margin_bottom = 169.146
+margin_left = 603.517
+margin_top = 158.646
+margin_right = 677.517
+margin_bottom = 182.646
 min_value = 720.0
 max_value = 1080.0
 step = 256.0
+page = 256.0
 value = 768.0
 exp_edit = true
 align = 2
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

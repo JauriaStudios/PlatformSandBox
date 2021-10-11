@@ -1,22 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/gui/cyber_interface2.png" type="Texture" id=1]
 [ext_resource path="res://fonts/BebasKai.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/Control.gd" type="Script" id=3]
-[ext_resource path="res://scripts/back_options_button.gd" type="Script" id=4]
+[ext_resource path="res://scripts/options.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://fonts/Ubuntu-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 40
-font_data = SubResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 60
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[node name="Control" type="Control"]
+[sub_resource type="DynamicFont" id=2]
+size = 60
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Options" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -5.03967
@@ -38,8 +38,10 @@ margin_left = 409.45
 margin_top = 100.67
 margin_right = 653.45
 margin_bottom = 193.67
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Game"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,8 +51,10 @@ margin_left = 409.71
 margin_top = 209.189
 margin_right = 653.71
 margin_bottom = 302.189
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Video"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -60,8 +64,10 @@ margin_left = 412.888
 margin_top = 321.535
 margin_right = 656.887
 margin_bottom = 414.535
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Audio"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -71,9 +77,10 @@ margin_left = 415.267
 margin_top = 433.321
 margin_right = 659.266
 margin_bottom = 526.32
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Back"
-script = ExtResource( 4 )
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,7 +90,7 @@ margin_left = 465.0
 margin_top = 21.0
 margin_right = 608.0
 margin_bottom = 88.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -92,7 +99,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="game_options_button" to="." method="_on_level_button_pressed"]
+[connection signal="pressed" from="game_options_button" to="." method="_on_game_options_button_pressed"]
 [connection signal="pressed" from="video_options_button" to="." method="_on_video_options_button_pressed"]
-[connection signal="pressed" from="audio_options_button" to="." method="_on_console_button_pressed"]
-[connection signal="pressed" from="back_options_button" to="back_options_button" method="_on_back_options_button_pressed"]
+[connection signal="pressed" from="audio_options_button" to="." method="_on_audio_options_button_pressed"]
+[connection signal="pressed" from="back_options_button" to="." method="_on_back_options_button_pressed"]
