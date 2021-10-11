@@ -16,5 +16,3 @@ func _ready():
 #	pass
 
 
-func _on_back_options_button_pressed():
-	get_tree().change_scene("res://scenes/control.tscn")
