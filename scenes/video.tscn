@@ -1,27 +1,51 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/gui/cyber_interface2.png" type="Texture" id=1]
+[ext_resource path="res://assets/gui/video_bg.png" type="Texture" id=1]
 [ext_resource path="res://fonts/BebasKai.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/video.gd" type="Script" id=3]
+[ext_resource path="res://assets/shaders/transition.shader" type="Shader" id=4]
+[ext_resource path="res://assets/sounds/sfx/Menu/Menu Selection Click.wav" type="AudioStream" id=5]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=6]
 size = 40
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=7]
 size = 60
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=8]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="Environment" id=9]
+background_mode = 4
+fog_color = Color( 0.611765, 0.105882, 0.717647, 1 )
+dof_blur_near_distance = 1.0
+glow_enabled = true
+glow_bloom = 0.1
+glow_hdr_threshold = 1.07
+glow_bicubic_upscale = true
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0, 0.898305, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.871186, 0.871186, 0.871186, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 10 )
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 4 )
+shader_param/cutoff = 0.0
+shader_param/smooth_size = 1.0
+shader_param/mask = SubResource( 5 )
 
 [node name="Video" type="Control"]
 anchor_right = 1.0
@@ -29,25 +53,25 @@ anchor_bottom = 1.0
 margin_left = -5.03967
 margin_top = 3.77975
 margin_right = -5.03967
-margin_bottom = 171.78
+margin_bottom = 3.77972
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( 516.99, 296.133 )
-scale = Vector2( 0.533827, 0.556619 )
+position = Vector2( 5.03966, -3.77975 )
+scale = Vector2( 1.02299, 1.06667 )
 texture = ExtResource( 1 )
+centered = false
 
 [node name="back_options_button" type="Button" parent="."]
-margin_left = 468.514
-margin_top = 433.0
-margin_right = 602.514
-margin_bottom = 484.0
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+margin_left = 499.054
+margin_top = 527.031
+margin_right = 633.054
+margin_bottom = 578.031
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 text = "BACK"
 flat = true
 __meta__ = {
@@ -55,12 +79,12 @@ __meta__ = {
 }
 
 [node name="save_button" type="Button" parent="."]
-margin_left = 479.217
-margin_top = 349.352
-margin_right = 589.217
-margin_bottom = 421.352
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+margin_left = 509.757
+margin_top = 443.383
+margin_right = 619.757
+margin_bottom = 515.383
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 text = "SAVE"
 flat = true
 __meta__ = {
@@ -68,12 +92,12 @@ __meta__ = {
 }
 
 [node name="options_title" type="Label" parent="."]
-margin_left = 382.945
-margin_top = 22.1892
-margin_right = 681.945
-margin_bottom = 89.1892
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+margin_left = 413.485
+margin_top = 116.22
+margin_right = 712.485
+margin_bottom = 183.22
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "VIDEO SETTINGS"
@@ -82,12 +106,12 @@ __meta__ = {
 }
 
 [node name="resolution_label" type="Label" parent="."]
-margin_left = 320.0
-margin_top = 126.0
-margin_right = 561.0
-margin_bottom = 192.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+margin_left = 350.54
+margin_top = 220.031
+margin_right = 591.54
+margin_bottom = 286.031
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "RESOLUTION"
@@ -96,12 +120,12 @@ __meta__ = {
 }
 
 [node name="fullscreen_label" type="Label" parent="."]
-margin_left = 318.5
-margin_top = 194.0
-margin_right = 559.5
-margin_bottom = 260.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+margin_left = 349.04
+margin_top = 288.031
+margin_right = 590.04
+margin_bottom = 354.031
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "FULLSCREEN"
@@ -110,13 +134,13 @@ __meta__ = {
 }
 
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 606.0
-margin_top = 213.5
-margin_right = 685.0
-margin_bottom = 240.5
+margin_left = 636.54
+margin_top = 307.531
+margin_right = 754.54
+margin_bottom = 351.531
 size_flags_horizontal = 9
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 shortcut_in_tooltip = false
 text = "ENABLED"
 __meta__ = {
@@ -124,14 +148,14 @@ __meta__ = {
 }
 
 [node name="width_spin_box" type="SpinBox" parent="."]
-margin_left = 604.122
-margin_top = 128.5
-margin_right = 679.122
-margin_bottom = 152.5
+margin_left = 637.04
+margin_top = 228.22
+margin_right = 712.04
+margin_bottom = 252.22
 min_value = 1024.0
 max_value = 1920.0
-step = 128.0
-page = 128.0
+step = 256.0
+page = 256.0
 value = 1024.0
 exp_edit = true
 align = 2
@@ -140,11 +164,11 @@ __meta__ = {
 }
 
 [node name="height_spinbox" type="SpinBox" parent="."]
-margin_left = 603.517
-margin_top = 158.646
-margin_right = 677.517
-margin_bottom = 182.646
-min_value = 720.0
+margin_left = 637.04
+margin_top = 260.22
+margin_right = 711.04
+margin_bottom = 284.22
+min_value = 768.0
 max_value = 1080.0
 step = 256.0
 page = 256.0
@@ -152,6 +176,26 @@ value = 768.0
 exp_edit = true
 align = 2
 __meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )
+
+[node name="fade_in" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 11 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.68188
+margin_right = -1.68188
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

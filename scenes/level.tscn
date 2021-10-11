@@ -1156,22 +1156,24 @@ __meta__ = {
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 974.0
-margin_bottom = 107.0
+margin_bottom = 275.0
 custom_constants/separation = 10
 alignment = 2
 
 [node name="collected_coins_lbl" type="Label" parent="HUD/MarginContainer/HBoxContainer"]
 margin_left = 751.0
+margin_top = 84.0
 margin_right = 886.0
-margin_bottom = 57.0
+margin_bottom = 141.0
 custom_fonts/font = SubResource( 39 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.694118, 1 )
 text = "Vidas:"
 
 [node name="coin_count" type="Label" parent="HUD/MarginContainer/HBoxContainer"]
 margin_left = 896.0
+margin_top = 84.0
 margin_right = 924.0
-margin_bottom = 57.0
+margin_bottom = 141.0
 custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.694118, 1 )
 text = "1"

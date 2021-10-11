@@ -22,9 +22,10 @@ __meta__ = {
 }
 
 [node name="iu" type="Sprite" parent="."]
-position = Vector2( 510.777, 299.013 )
-scale = Vector2( 0.796662, 0.826076 )
+position = Vector2( -136, 0 )
+scale = Vector2( 1.02486, 1.06645 )
 texture = ExtResource( 2 )
+centered = false
 
 [node name="MUSIC" type="Button" parent="."]
 anchor_left = 0.5
