@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cyber_interface_by_chembletek-d32b0cr.jpg-7720d556f81ebecb00797f5178f79ace.stex"
+path="res://.import/lobby.png-d82664000536358efc919f8b00e0671a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/cyber_interface_by_chembletek-d32b0cr.jpg"
-dest_files=[ "res://.import/cyber_interface_by_chembletek-d32b0cr.jpg-7720d556f81ebecb00797f5178f79ace.stex" ]
+source_file="res://assets/gui/lobby.png"
+dest_files=[ "res://.import/lobby.png-d82664000536358efc919f8b00e0671a.stex" ]
 
 [params]
 
