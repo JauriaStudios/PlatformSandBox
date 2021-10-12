@@ -10,8 +10,10 @@ config_version=4
 
 [application]
 
-config/name="JuegoLoco5"
+config/name="CyberRider"
 run/main_scene="res://scenes/control.tscn"
+boot_splash/image="res://icon.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [display]
