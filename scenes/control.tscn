@@ -6,7 +6,7 @@
 [ext_resource path="res://assets/sounds/sfx/Menu/Menu Selection Click.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/shaders/transition.shader" type="Shader" id=5]
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=1]
 background_mode = 4
 fog_color = Color( 0.611765, 0.105882, 0.717647, 1 )
 dof_blur_near_distance = 1.0
@@ -15,13 +15,15 @@ glow_bloom = 0.1
 glow_hdr_threshold = 1.07
 glow_bicubic_upscale = true
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 96
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 48
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -50,13 +52,16 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 1 )
 
 [node name="iu" type="Sprite" parent="."]
 position = Vector2( -200, 0 )
 scale = Vector2( 0.725839, 0.725839 )
 texture = ExtResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="menu_sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -70,7 +75,7 @@ margin_left = 335.92
 margin_top = 16.0603
 margin_right = 598.92
 margin_bottom = 83.0603
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CYBER-RIDER"
@@ -85,15 +90,16 @@ anchor_left = 0.005
 anchor_top = -0.005
 anchor_right = 0.005
 anchor_bottom = -0.005
-margin_left = 121.153
+margin_left = 122.835
 margin_top = 256.0
-margin_right = 225.153
+margin_right = 226.835
 margin_bottom = 315.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 text = "Start"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -107,11 +113,12 @@ margin_left = 104.0
 margin_top = 336.0
 margin_right = 245.0
 margin_bottom = 395.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 text = "Options"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -125,22 +132,24 @@ margin_left = 133.643
 margin_top = 424.337
 margin_right = 215.643
 margin_bottom = 483.337
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 text = "Quit"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="fade_in" type="ColorRect" parent="."]
-visible = false
 material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.68188
-margin_right = -1.68188
+margin_left = -17.0
+margin_top = -17.0
+margin_right = 17.0
+margin_bottom = 23.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {

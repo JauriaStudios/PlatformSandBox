@@ -31,10 +31,10 @@ omni_range = 43.5
 omni_attenuation = 9.57744e-05
 
 [node name="Control" type="Control" parent="."]
-margin_left = -2.0
-margin_top = -1.0
-margin_right = 1025.0
-margin_bottom = 604.0
+margin_left = 7.53516
+margin_top = 6.41624
+margin_right = 1034.54
+margin_bottom = 611.416
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -50,10 +50,10 @@ __meta__ = {
 }
 
 [node name="Button4" type="Button" parent="Control"]
-margin_left = 507.321
-margin_top = 123.274
-margin_right = 685.321
-margin_bottom = 240.274
+margin_left = 511.559
+margin_top = 122.215
+margin_right = 689.559
+margin_bottom = 239.215
 text = "ASDF123"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -1,5 +1,6 @@
 extends Control
 
+
 var fadein_timer
 var fadeout_timer
 
@@ -42,30 +43,29 @@ func _fadeout():
 	material_cutoff -= 0.1
 
 
-func _on_game_options_button_mouse_entered():
-	$menu_sfx.play()
 
-func _on_video_options_button_mouse_entered():
-	$menu_sfx.play()
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
 
-func _on_audio_options_button_mouse_entered():
-	$menu_sfx.play()
 
+
+func _on_SpinBox_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_soundtest_button_mouse_entered():
+	$menu_sfx.play()
+	
 func _on_back_options_button_mouse_entered():
 	$menu_sfx.play()
 
-
-func _on_game_options_button_pressed():
-	pass # Replace with function body.
-
-func _on_video_options_button_pressed():
-	get_tree().change_scene("res://scenes/video.tscn")
-
-func _on_audio_options_button_pressed():
-	get_tree().change_scene("res://scenes/audio.tscn")
+func _on_save_button_mouse_entered():
+	$menu_sfx.play()
 
 func _on_back_options_button_pressed():
-	get_tree().change_scene("res://scenes/control.tscn")
+	fadeout_timer.start()
+	get_tree().change_scene("res://scenes/options.tscn")
 
-
-
+func _on_soundtest_button_pressed():
+	get_tree().change_scene("res://scenes/sound_test.tscn")

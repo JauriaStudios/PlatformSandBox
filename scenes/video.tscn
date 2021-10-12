@@ -6,27 +6,29 @@
 [ext_resource path="res://assets/shaders/transition.shader" type="Shader" id=4]
 [ext_resource path="res://assets/sounds/sfx/Menu/Menu Selection Click.wav" type="AudioStream" id=5]
 
-[sub_resource type="Environment" id=8]
+[sub_resource type="Environment" id=1]
 glow_enabled = true
 glow_intensity = 1.0
 glow_strength = 0.9
 glow_blend_mode = 0
 glow_bicubic_upscale = true
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 40
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
+use_mipmaps = true
+use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 60
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 32
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
@@ -48,23 +50,27 @@ shader_param/mask = SubResource( 6 )
 [node name="Video" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -5.03967
-margin_top = 3.77975
-margin_right = -5.03967
-margin_bottom = 3.77972
+margin_left = -1.53967
+margin_top = -7.72025
+margin_right = -1.53967
+margin_bottom = -7.72028
 script = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 8 )
+environment = SubResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -48.4143, -5.56155 )
-scale = Vector2( 1.02299, 1.06667 )
+position = Vector2( -55.5576, -9.53005 )
+scale = Vector2( 1.02299, 1.0821 )
 texture = ExtResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="back_options_button" type="Button" parent="."]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
@@ -72,7 +78,7 @@ margin_left = 499.054
 margin_top = 527.031
 margin_right = 633.054
 margin_bottom = 578.031
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 text = "BACK"
 flat = true
@@ -86,7 +92,7 @@ margin_left = 509.757
 margin_top = 443.383
 margin_right = 619.757
 margin_bottom = 515.383
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 text = "SAVE"
 flat = true
@@ -99,7 +105,7 @@ margin_left = 413.485
 margin_top = 116.22
 margin_right = 712.485
 margin_bottom = 183.22
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -113,7 +119,7 @@ margin_left = 350.54
 margin_top = 220.031
 margin_right = 591.54
 margin_bottom = 286.031
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -127,7 +133,7 @@ margin_left = 349.04
 margin_top = 288.031
 margin_right = 590.04
 margin_bottom = 354.031
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -142,7 +148,7 @@ margin_top = 307.531
 margin_right = 754.54
 margin_bottom = 351.531
 size_flags_horizontal = 9
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.796078, 0.133333, 0.133333, 1 )
 shortcut_in_tooltip = false
 text = "ENABLED"
@@ -190,8 +196,10 @@ visible = false
 material = SubResource( 7 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.68188
-margin_right = -1.68188
+margin_left = -3.0
+margin_top = 1.0
+margin_right = 6.0
+margin_bottom = 12.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {

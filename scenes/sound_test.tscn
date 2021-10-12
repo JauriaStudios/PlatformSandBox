@@ -4,14 +4,19 @@
 [ext_resource path="res://assets/gui/music_bg.png" type="Texture" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
-font_path = "res://fonts/Ubuntu-Regular.ttf"
+font_path = "res://fonts/BebasKai.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 60
+outline_size = 3
+use_filter = true
 font_data = ExtResource( 1 )
 
 [node name="sound_test" type="Control"]
@@ -22,17 +27,17 @@ __meta__ = {
 }
 
 [node name="iu" type="Sprite" parent="."]
-position = Vector2( -136, 0 )
-scale = Vector2( 1.02486, 1.06645 )
+position = Vector2( -136, -8 )
+scale = Vector2( 1.025, 1.08889 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="MUSIC" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 213.444
+margin_left = 215.597
 margin_top = 50.2312
-margin_right = 457.444
+margin_right = 459.597
 margin_bottom = 143.231
 custom_fonts/font = SubResource( 2 )
 text = "MUSIC"
@@ -44,9 +49,9 @@ __meta__ = {
 [node name="BACK" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -418.153
+margin_left = -416.0
 margin_top = 412.861
-margin_right = -192.153
+margin_right = -190.0
 margin_bottom = 495.861
 custom_fonts/font = SubResource( 2 )
 text = "RETURN"
@@ -58,9 +63,9 @@ __meta__ = {
 [node name="SFX" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 214.779
+margin_left = 216.932
 margin_top = 232.551
-margin_right = 458.779
+margin_right = 460.932
 margin_bottom = 325.551
 custom_fonts/font = SubResource( 2 )
 text = "SFX"
@@ -72,9 +77,9 @@ __meta__ = {
 [node name="VOICES" type="Button" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = 217.775
+margin_left = 219.928
 margin_top = 410.377
-margin_right = 461.774
+margin_right = 463.927
 margin_bottom = 503.377
 custom_fonts/font = SubResource( 2 )
 text = "VOICES"
@@ -84,10 +89,10 @@ __meta__ = {
 }
 
 [node name="title _abel" type="Label" parent="."]
-margin_left = 376.036
-margin_top = 53.0407
-margin_right = 639.036
-margin_bottom = 120.041
+margin_left = 378.153
+margin_top = 48.0
+margin_right = 641.153
+margin_bottom = 115.0
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.815686, 1, 0.972549, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
