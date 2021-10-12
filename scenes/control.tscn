@@ -6,6 +6,15 @@
 [ext_resource path="res://assets/sounds/sfx/Menu/Menu Selection Click.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/shaders/transition.shader" type="Shader" id=5]
 
+[sub_resource type="Environment" id=3]
+background_mode = 4
+fog_color = Color( 0.611765, 0.105882, 0.717647, 1 )
+dof_blur_near_distance = 1.0
+glow_enabled = true
+glow_bloom = 0.1
+glow_hdr_threshold = 1.07
+glow_bicubic_upscale = true
+
 [sub_resource type="DynamicFont" id=1]
 size = 96
 outline_size = 3
@@ -17,15 +26,6 @@ size = 48
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
-
-[sub_resource type="Environment" id=3]
-background_mode = 4
-fog_color = Color( 0.611765, 0.105882, 0.717647, 1 )
-dof_blur_near_distance = 1.0
-glow_enabled = true
-glow_bloom = 0.1
-glow_hdr_threshold = 1.07
-glow_bicubic_upscale = true
 
 [sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.898305, 1 )
@@ -48,6 +48,9 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
 
 [node name="iu" type="Sprite" parent="."]
 position = Vector2( -200, 0 )
@@ -77,7 +80,7 @@ __meta__ = {
 }
 
 [node name="game_button" type="Button" parent="."]
-modulate = Color( 1.52941, 1.53725, 1.52941, 1 )
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 anchor_left = 0.005
 anchor_top = -0.005
 anchor_right = 0.005
@@ -95,7 +98,7 @@ __meta__ = {
 }
 
 [node name="options_button" type="Button" parent="."]
-modulate = Color( 1.52941, 1.53725, 1.52941, 1 )
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 anchor_left = 0.005
 anchor_top = -0.005
 anchor_right = 0.005
@@ -113,7 +116,7 @@ __meta__ = {
 }
 
 [node name="quit_button" type="Button" parent="."]
-modulate = Color( 1.52941, 1.53725, 1.52941, 1 )
+modulate = Color( 1.5, 1.5, 1.5, 1 )
 anchor_left = 0.005
 anchor_top = -0.005
 anchor_right = 0.005
@@ -130,9 +133,6 @@ flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
 
 [node name="fade_in" type="ColorRect" parent="."]
 visible = false
