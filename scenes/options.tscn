@@ -61,6 +61,9 @@ position = Vector2( -130.96, -11.7797 )
 scale = Vector2( 0.675, 0.725926 )
 texture = ExtResource( 1 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="menu_sfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -76,6 +79,7 @@ custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Game"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -90,6 +94,7 @@ custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Video"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -104,6 +109,7 @@ custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Audio"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -118,6 +124,7 @@ custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Back"
 flat = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -132,6 +139,7 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "OTIONS"
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
