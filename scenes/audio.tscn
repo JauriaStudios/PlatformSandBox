@@ -56,7 +56,7 @@ __meta__ = {
 environment = SubResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
-position = Vector2( -32.7654, -15.3183 )
+position = Vector2( -32.7654, -13.6365 )
 scale = Vector2( 0.743929, 0.687509 )
 texture = ExtResource( 1 )
 centered = false
