@@ -136,6 +136,7 @@ __meta__ = {
 }
 
 [node name="fade_in" type="ColorRect" parent="."]
+visible = false
 material = SubResource( 6 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -146,6 +147,7 @@ margin_bottom = 3.99994
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
