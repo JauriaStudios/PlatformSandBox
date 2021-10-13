@@ -4,7 +4,7 @@ extends KinematicBody
 var vec_pos = Vector3(0,0,0) 
 var speed = 16
 var rotspeed = 10
-var gravity = -7
+var gravity = -10
 #var wind = 0.0
 var jump_force = 90
 

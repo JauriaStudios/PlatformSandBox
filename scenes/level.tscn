@@ -1156,24 +1156,24 @@ __meta__ = {
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 974.0
-margin_bottom = 275.0
+margin_bottom = 227.0
 custom_constants/separation = 10
 alignment = 2
 
 [node name="collected_coins_lbl" type="Label" parent="HUD/MarginContainer/HBoxContainer"]
 margin_left = 751.0
-margin_top = 84.0
+margin_top = 60.0
 margin_right = 886.0
-margin_bottom = 141.0
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 39 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.694118, 1 )
 text = "Vidas:"
 
 [node name="coin_count" type="Label" parent="HUD/MarginContainer/HBoxContainer"]
 margin_left = 896.0
-margin_top = 84.0
+margin_top = 60.0
 margin_right = 924.0
-margin_bottom = 141.0
+margin_bottom = 117.0
 custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0.956863, 0.956863, 0.694118, 1 )
 text = "1"
@@ -1235,11 +1235,11 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.20
 [connection signal="body_entered" from="Enemies/E-group1/Enemy6" to="Model" method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Enemies/E-group1/Enemy7" to="Model" method="_on_Enemy_body_entered"]
 [connection signal="body_entered" from="Coins/coinh1/Coin" to="Coins/coinh1/Coin" method="_on_Coin_body_entered"]
-[connection signal="cn_collected" from="Coins/coinh1/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="cn_collected" from="Coins/coinh1/Coin" to="Model" method="_on_Coin_cn_collected"]
+[connection signal="cn_collected" from="Coins/coinh1/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="body_entered" from="Coins/coinh2/Coin" to="Coins/coinh2/Coin" method="_on_Coin_body_entered"]
-[connection signal="cn_collected" from="Coins/coinh2/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="cn_collected" from="Coins/coinh2/Coin" to="Model" method="_on_Coin_cn_collected"]
+[connection signal="cn_collected" from="Coins/coinh2/Coin" to="HUD/MarginContainer/HBoxContainer/coin_count" method="_on_Coin_cn_collected"]
 [connection signal="body_entered" from="triggers/t1" to="Model" method="_on_t1_body_entered"]
 [connection signal="body_entered" from="triggers/t2" to="Model" method="_on_t2_body_entered"]
 [connection signal="pressed" from="HUD/Button" to="HUD/Button" method="_on_Button_pressed"]
