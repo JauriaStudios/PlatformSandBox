@@ -33,7 +33,7 @@ func _fadein():
 		fadein_timer.stop()
 		return
 		
-	material_cutoff += 0.1
+	material_cutoff += 0.05
 
 func _fadeout():
 	rect_material.set_shader_param("cutoff", material_cutoff)
