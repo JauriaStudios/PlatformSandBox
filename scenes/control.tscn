@@ -33,21 +33,20 @@ font_data = ExtResource( 2 )
 offsets = PoolRealArray( 0, 0.898305, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.871186, 0.871186, 0.871186, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=5]
+[sub_resource type="GradientTexture" id=7]
 gradient = SubResource( 4 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 5 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 1.0
-shader_param/mask = SubResource( 5 )
+shader_param/mask = SubResource( 7 )
 
 [node name="Control" type="Control"]
 margin_right = 1024.0
 margin_bottom = 768.0
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

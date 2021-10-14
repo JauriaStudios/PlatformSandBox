@@ -28,14 +28,25 @@ var slash_max = 700
 var prev_slash = 0
 var slash_count = 0
 
+var Bullet = preload("res://scenes/bullet_test.tscn")
 
 func _ready():
 	  pass
+	
+func shoot():
+	var b = Bullet.instance()
+	add_child(b)
+	b.transform = $Flare.transform
+	b.velocity = -b.transform.basis.z * b.muzzle_velocity
 
 # Physics Loop
 func _physics_process(_delta):
 	
 	var y = 0
+	
+	
+	if Input.is_action_pressed("shoot"):
+		shoot()
 	
 	
 	# input handler
@@ -153,7 +164,7 @@ func _physics_process(_delta):
 		$personaje3.rotate(Vector3(0, 1, 0), _delta * rotspeed)
 		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
 	
-		# keep rotation if button released before reach the end of the animation
+	# keep rotation if button released before reach the end of the animation
 	if rotating_right == true:
 		$personaje3.rotate(Vector3(0, 1, 0), _delta * rotspeed)
 		$personaje3/AnimationPlayer.play("walk_forward-loop")
