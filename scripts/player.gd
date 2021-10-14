@@ -7,7 +7,7 @@ var run_mult = 3
 var rotspeed = 10
 var gravity = -2
 #var wind = 0.0
-var jump_force = 30
+var jump_force = 36
 
 var max_jumps = 3
 var jumps_count = 0
