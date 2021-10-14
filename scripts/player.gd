@@ -2,11 +2,12 @@ extends KinematicBody
 
 #var rand_generate = RandomNumberGenerator.new()
 var vec_pos = Vector3(0,0,0) 
-var speed = 16
+var speed = 4
+var run_mult = 3
 var rotspeed = 10
-var gravity = -10
+var gravity = -2
 #var wind = 0.0
-var jump_force = 90
+var jump_force = 30
 
 var max_jumps = 3
 var jumps_count = 0
@@ -36,12 +37,43 @@ func _physics_process(_delta):
 	
 	var y = 0
 	
-	# input handler
 	
+	# input handler
+	# Jump
+	if Input.is_action_pressed("jump"):
+		jumps_count = 1
+	else:
+		jumps_count = 0
+
+	if Input.is_action_pressed("jump") and is_on_floor():
+		vec_pos.y = jump_force
+		$personaje3/AnimationPlayer.play("fall_down-loop")
+	else:
+		vec_pos.y += gravity
+
 	# No move
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_left"):
 		vec_pos.z=0
 	
+	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_right"):
+		
+		vec_pos.z = -speed * run_mult
+		if $personaje3.rotation.y <= 90 and $personaje3.rotation.y <= 0:
+			rotating_right = true
+			player_rotation = _delta * rotspeed
+			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("run_forward-loop")
+	
+	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_left"):
+		vec_pos.z = speed * run_mult
+		if $personaje3.rotation.y >= 0 and $personaje3.rotation.y <= 90:
+			rotating_left = true
+			player_rotation = _delta * rotspeed
+			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("run_forward-loop")
+
 	# Crouch Right
 	elif Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
 		vec_pos.z=-speed
@@ -49,7 +81,8 @@ func _physics_process(_delta):
 			rotating_right_crouch = true
 			player_rotation = _delta * rotspeed
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
-		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
 		
 	# Crouch Left
 	elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
@@ -58,7 +91,8 @@ func _physics_process(_delta):
 			rotating_left_crouch = true
 			player_rotation = _delta * rotspeed
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
-		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
 	
 	# Move Right
 	elif Input.is_action_pressed("ui_right"):
@@ -67,8 +101,9 @@ func _physics_process(_delta):
 			rotating_right = true
 			player_rotation = _delta * rotspeed
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
-			
-		$personaje3/AnimationPlayer.play("walk_forward-loop")
+		
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("walk_forward-loop")
 	
 	# Move Left
 	elif Input.is_action_pressed("ui_left"):
@@ -77,28 +112,26 @@ func _physics_process(_delta):
 			rotating_left = true
 			player_rotation = _delta * rotspeed
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
-		$personaje3/AnimationPlayer.play("walk_forward-loop")
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("walk_forward-loop")
 	
 	# Crouch
 	elif Input.is_action_pressed("ui_down"):
 		crouching = true
 		
-		$personaje3/AnimationPlayer.play("crouch-loop")
-		vec_pos.z= lerp(vec_pos.z,0,0.2)
-		
-		
-		$ballColl.scale.z = $ballColl.scale.z / 2
-		$ballColl.translation.y = $ballColl.translation.y / 2
+		if jumps_count == 0:
+			$personaje3/AnimationPlayer.play("crouch-loop")
+			
+#		vec_pos.z= lerp(vec_pos.z,0,0.5)
+#
+#
+#		$ballColl.scale.z = $ballColl.scale.z / 2
+#		$ballColl.translation.y = $ballColl.translation.y / 2
 		
 	
 	else:
-		$personaje3/AnimationPlayer.play("fall_down-loop")
+		$personaje3/AnimationPlayer.play("idle-loop")
 		vec_pos.z= lerp(vec_pos.z,0,0.2)
-		if crouching == true and prev_crouching == true:
-			$ballColl.scale.z = 1
-			$ballColl.translation.y = $ballColl.translation.y * 2
-			crouching = false
-			prev_crouching = false
 		
 	
 	# Stop rotation when player in position
@@ -130,28 +163,7 @@ func _physics_process(_delta):
 	
 	# wind = rand_generate.randf_range(-1.0, 1.0)
 	
-	if is_on_floor():
-		slash_count = 0
-	
-	if Input.is_action_pressed("jump") and is_on_floor():
-		vec_pos.y = jump_force
-		
-	if Input.is_action_pressed("run") and Input.is_action_pressed("ui_right"):
-		slash_timer = OS.get_system_time_msecs()
-		if slash_timer - prev_slash >= slash_max:
-			vec_pos.z = -jump_force
-			prev_slash = slash_timer
-			vec_pos.y += gravity
-			
-	
-	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_left"):
-		if slash_timer - prev_slash >= slash_max:
-			vec_pos.z = jump_force
-			prev_slash = slash_timer
-			vec_pos.y += gravity
-	else:
-		
-		vec_pos.y += gravity
+
 		#vec_pos.z += wind
 	
 	vec_pos = move_and_slide(Vector3(0, vec_pos.y, vec_pos.z),Vector3.UP)
