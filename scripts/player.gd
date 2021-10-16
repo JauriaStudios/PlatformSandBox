@@ -28,12 +28,32 @@ var slash_max = 700
 var prev_slash = 0
 var slash_count = 0
 
+var camera_move = 0
+var camera_move_max = 0.36
+
+var shoot_rate_timer
+var shot_rate = 0.5
+var shooting = false
+
 var Bullet = preload("res://scenes/bullet_test.tscn")
 
-func _ready():
-	  pass
+func _init():
+	shoot_rate_timer = Timer.new()
+	add_child(shoot_rate_timer)
+	shoot_rate_timer.autostart = false
+	shoot_rate_timer.wait_time = shot_rate
+	shoot_rate_timer.connect("timeout", self, "shoot_end")
 	
+
+func _ready():
+	pass
+	
+func shoot_end():
+	shooting = false
+
 func shoot():
+	shooting = true
+	shoot_rate_timer.start()
 	var b = Bullet.instance()
 	add_child(b)
 	b.transform = $Flare.transform
@@ -46,9 +66,17 @@ func _physics_process(_delta):
 	
 	
 	if Input.is_action_pressed("shoot"):
-		shoot()
-	
-	
+		
+		if camera_move < camera_move_max:
+			camera_move += 0.02
+			$Camera.translate(Vector3(camera_move,0,0))
+		if !shooting:
+			shoot()
+	else:
+		if camera_move > 0:
+			camera_move -= 0.02
+			$Camera.translate(Vector3(-camera_move,0,0))
+			
 	# input handler
 	# Jump
 	if Input.is_action_pressed("jump"):
