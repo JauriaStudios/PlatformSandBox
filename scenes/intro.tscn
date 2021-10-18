@@ -1,21 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/shaders/transition.shader" type="Shader" id=1]
 [ext_resource path="res://scripts/intro.gd" type="Script" id=2]
 [ext_resource path="res://assets/gui/iu.png" type="Texture" id=3]
+[ext_resource path="res://scripts/fade_in.gd" type="Script" id=4]
 
-[sub_resource type="Gradient" id=6]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.898305, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.871186, 0.871186, 0.871186, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 6 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 1 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 1.0
-shader_param/mask = SubResource( 5 )
+shader_param/mask = SubResource( 2 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -27,7 +28,7 @@ texture = ExtResource( 3 )
 
 [node name="fade_in" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 7 )
+material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -6.75684
@@ -36,6 +37,7 @@ margin_right = 1040.24
 margin_bottom = 735.938
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
