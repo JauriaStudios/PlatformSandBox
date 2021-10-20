@@ -3,7 +3,7 @@ class_name Player
 extends KinematicBody
 
 
-var speed = Vector3(0.0, 6.0, 12.0)
+var speed = Vector3(0.0, 12.0, 12.0)
 var velocity = Vector3.ZERO
 var falling_slow = false
 var falling_fast = false
@@ -41,6 +41,8 @@ var shoot_rate_timer
 var shot_rate = 0.5
 var shooting = false
 
+var multiplier = 5
+
 var Bullet = preload("res://scenes/bullet_test.tscn")
 
 func _init():
@@ -67,12 +69,12 @@ func shoot():
 
 # Physics Loop
 func _physics_process(delta):
-	velocity.y -= gravity * delta
+	velocity.y -= gravity * (delta * multiplier)
 	
 	if no_move_horizontal_time > 0.0:
 		# After doing a hard fall, don't move for a short time.
 		velocity.z = 0.0
-		no_move_horizontal_time -= delta
+		no_move_horizontal_time -= (delta * multiplier)
 	else:
 		
 		velocity.z = (Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right")) * speed.z
