@@ -82,6 +82,7 @@ walk={
 
 [physics]
 
+3d/default_gravity=90.0
 3d/default_gravity_vector=Vector3( 0, 1, 0 )
 
 [rendering]
