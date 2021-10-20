@@ -8,11 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scripts/player.gd"
+} ]
+_global_script_class_icons={
+"Player": ""
+}
+
 [application]
 
-config/name="CyberRider"
+config/name="CyberDrome"
 run/main_scene="res://scenes/control.tscn"
 boot_splash/image="res://icon.png"
+boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
@@ -68,6 +79,10 @@ walk={
 "events": [ Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[physics]
+
+3d/default_gravity_vector=Vector3( 0, 1, 0 )
 
 [rendering]
 

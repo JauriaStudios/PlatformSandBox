@@ -1,13 +1,15 @@
+class_name Player
+
 extends KinematicBody
 
+
+var speed = Vector3(0.0, 6.0, 12.0)
+var velocity = Vector3.ZERO
 var falling_slow = false
 var falling_fast = false
 var no_move_horizontal_time = 0.0
 
-var velocity = Vector3(0.0, 0.0, 0.0)
-
-var speed = Vector3(0.0, 8.0, 12.0)
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #var wind = 0.0
 
 var run_mult = 3
@@ -67,7 +69,6 @@ func shoot():
 func _physics_process(delta):
 	velocity.y -= gravity * delta
 	
-	
 	if no_move_horizontal_time > 0.0:
 		# After doing a hard fall, don't move for a short time.
 		velocity.z = 0.0
@@ -78,7 +79,8 @@ func _physics_process(delta):
 		if Input.is_action_pressed("walk"):
 			velocity.z *= 0.2
 	
-	velocity = move_and_slide(Vector3(0.0, velocity.y, velocity.z),Vector3.UP)
+	velocity = move_and_slide(velocity, Vector3.UP)
+	# velocity = move_and_slide(Vector3(0.0, velocity.y, velocity.z),Vector3.UP)
 	
 #	# Calculate flipping and falling speed for animation purposes.
 #	if velocity.z > 0:
@@ -106,7 +108,7 @@ func _physics_process(delta):
 			falling_slow = false
 		if Input.is_action_just_pressed("jump"):
 			# $AnimationTree["parameters/jump/active"] = true
-			velocity.y = +speed.y
+			velocity.y = speed.y
 			
 		if abs(velocity.z) > 4:
 			$personaje3/AnimationPlayer.play("run_forward-loop")
