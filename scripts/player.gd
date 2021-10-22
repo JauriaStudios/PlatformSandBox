@@ -8,7 +8,7 @@ var velocity = Vector3.ZERO
 var falling_slow = false
 var falling_fast = false
 var no_move_horizontal_time = 0.0
-onready var dialog_label = get_node("/root/dialog")
+
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #var wind = 0.0
 
@@ -43,8 +43,9 @@ var shooting = false
 
 var multiplier = 5
 
-var wishler_1 = false
-var wishler_talk = false
+var walk_scale = 2.5
+var run_scale = 1.25
+
 
 var Bullet = preload("res://scenes/bullet_test.tscn")
 
@@ -75,15 +76,6 @@ func _physics_process(delta):
 	
 	velocity.y -= gravity * delta
 	
-	
-	if Input.is_action_pressed("action"):
-		if wishler_1 == true:
-			if wishler_talk == false:
-				dialog_label.set_hidden(false)
-				wishler_talk = true
-			else:
-				dialog_label.set_hidden(true)
-				
 	
 	if Input.is_action_pressed("shoot"):
 
@@ -122,6 +114,8 @@ func _physics_process(delta):
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
 			$personaje3/AnimationPlayer.play("run_forward-loop")
+			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * run_scale)
+			
 
 	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_right"):
 		velocity.z = -speed.z * Input.get_action_strength("ui_right")
@@ -131,6 +125,8 @@ func _physics_process(delta):
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
 			$personaje3/AnimationPlayer.play("run_forward-loop")
+			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * run_scale)
+			
 
 	# Crouch Right
 	elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
@@ -141,6 +137,8 @@ func _physics_process(delta):
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
 			$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * walk_scale)
+			
 
 	# Crouch Left
 	elif Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
@@ -151,6 +149,8 @@ func _physics_process(delta):
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
 			$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * walk_scale)
+			
 
 	# Move Right
 	elif Input.is_action_pressed("ui_left"):
@@ -162,7 +162,7 @@ func _physics_process(delta):
 
 		if jumps_count == 0:
 			$personaje3/AnimationPlayer.play("walk_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left")*10)
+			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * walk_scale)
 			
 
 	# Move Left
@@ -174,7 +174,7 @@ func _physics_process(delta):
 			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
 			$personaje3/AnimationPlayer.play("walk_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right")*10)
+			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * walk_scale)
 
 	# Crouch
 	elif Input.is_action_pressed("ui_down"):
@@ -228,13 +228,6 @@ func _physics_process(delta):
 
 	#vec_pos.z += wind
 
-
-func _on_Area_body_entered(body):
-	wishler_1 = true
-
-func _on_Area_body_exited(body):
-	wishler_1 = false
-#
 #func _on_Enemy_body_entered(body):
 #	if body.name == "KineBall":
 #		get_parent().get_node("Sounds/hurt").play()
