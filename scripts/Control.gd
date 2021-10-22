@@ -4,24 +4,8 @@ var menu_enabled = 0
 var menu_index = 0
 
 func _ready():
-	pass
-	
-func _process(delta):
+	$menu_hbox/game_button.grab_focus()
 
-	if Input.is_action_pressed("ui_down"):
-		menu_enabled = true
-	elif Input.is_action_pressed("ui_up"):
-		menu_enabled = false
-	elif Input.is_action_pressed("ui_left"):
-		if menu_enabled and menu_index > 0:
-			menu_index -= 1
-	elif Input.is_action_pressed("ui_right"):
-		if menu_enabled and menu_index < 4:
-			menu_index += 1
-			
-	if menu_enabled:
-		if menu_index == 0:
-			$menu_hbox/game_button.grab_focus()
 	
 func _on_game_button_mouse_entered():
 	$menu_hbox/game_button.grab_focus()
