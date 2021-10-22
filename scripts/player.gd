@@ -3,7 +3,7 @@ class_name Player
 extends KinematicBody
 
 
-var speed = Vector3(0.0, 30.0, 24.0)
+var speed = Vector3(0.0, 10.0, 12.0)
 var velocity = Vector3.ZERO
 var falling_slow = false
 var falling_fast = false
@@ -12,7 +12,6 @@ var no_move_horizontal_time = 0.0
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #var wind = 0.0
 
-var run_mult = 3
 var rotspeed = 10
 
 var max_jumps = 3
@@ -98,7 +97,7 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = speed.y
-		$personaje3/AnimationPlayer.play("fall_down-loop")
+		$player/AnimationPlayer.play("fall_down-loop")
 	else:
 		pass
 	# No move
@@ -108,80 +107,80 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_left"):
 
 		velocity.z = speed.z * Input.get_action_strength("ui_left")
-		if $personaje3.rotation.y <= 90 and $personaje3.rotation.y <= 0:
+		if $player.rotation.y <= 90 and $player.rotation.y <= 0:
 			rotating_right = true
 			player_rotation = delta * rotspeed
-			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+			$player.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("run_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * run_scale)
+			$player/AnimationPlayer.play("run_forward-loop")
+			$player/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * run_scale)
 			
 
 	elif Input.is_action_pressed("run") and Input.is_action_pressed("ui_right"):
 		velocity.z = -speed.z * Input.get_action_strength("ui_right")
-		if $personaje3.rotation.y >= 0 and $personaje3.rotation.y <= 90:
+		if $player.rotation.y >= 0 and $player.rotation.y <= 90:
 			rotating_left = true
 			player_rotation = delta * rotspeed
-			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+			$player.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("run_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * run_scale)
+			$player/AnimationPlayer.play("run_forward-loop")
+			$player/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * run_scale)
 			
 
 	# Crouch Right
 	elif Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_down"):
 		velocity.z = speed.z * Input.get_action_strength("ui_left") / 3
-		if $personaje3.rotation.y <= 90 and $personaje3.rotation.y <= 0:
+		if $player.rotation.y <= 90 and $player.rotation.y <= 0:
 			rotating_right_crouch = true
 			player_rotation = delta * rotspeed
-			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+			$player.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * walk_scale)
+			$player/AnimationPlayer.play("crouch_walk_forward-loop")
+			$player/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * walk_scale)
 			
 
 	# Crouch Left
 	elif Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_down"):
 		velocity.z = -speed.z * Input.get_action_strength("ui_right") / 3
-		if $personaje3.rotation.y >= 0 and $personaje3.rotation.y <= 90:
+		if $player.rotation.y >= 0 and $player.rotation.y <= 90:
 			rotating_left_crouch = true
 			player_rotation = delta * rotspeed
-			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+			$player.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * walk_scale)
+			$player/AnimationPlayer.play("crouch_walk_forward-loop")
+			$player/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * walk_scale)
 			
 
 	# Move Right
 	elif Input.is_action_pressed("ui_left"):
 		velocity.z = speed.z * Input.get_action_strength("ui_left") / 3
-		if $personaje3.rotation.y <= 90 and $personaje3.rotation.y <= 0:
+		if $player.rotation.y <= 90 and $player.rotation.y <= 0:
 			rotating_right = true
 			player_rotation = delta * rotspeed
-			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+			$player.rotate(Vector3(0, 1, 0), player_rotation)
 
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("walk_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * walk_scale)
+			$player/AnimationPlayer.play("walk_forward-loop")
+			$player/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_left") * walk_scale)
 			
 
 	# Move Left
 	elif Input.is_action_pressed("ui_right"):
 		velocity.z = -speed.z * Input.get_action_strength("ui_right") / 3
-		if $personaje3.rotation.y >= 0 and $personaje3.rotation.y <= 90:
+		if $player.rotation.y >= 0 and $player.rotation.y <= 90:
 			rotating_left = true
 			player_rotation = delta * rotspeed
-			$personaje3.rotate(Vector3(0, 1, 0), player_rotation)
+			$player.rotate(Vector3(0, 1, 0), player_rotation)
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("walk_forward-loop")
-			$personaje3/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * walk_scale)
+			$player/AnimationPlayer.play("walk_forward-loop")
+			$player/AnimationPlayer.set_speed_scale(Input.get_action_strength("ui_right") * walk_scale)
 
 	# Crouch
 	elif Input.is_action_pressed("ui_down"):
 		crouching = true
 
 		if jumps_count == 0:
-			$personaje3/AnimationPlayer.play("crouch-loop")
+			$player/AnimationPlayer.play("crouch-loop")
 
 #		vec_pos.z= lerp(vec_pos.z,0,0.5)
 #
@@ -191,36 +190,36 @@ func _physics_process(delta):
 
 
 	else:
-		$personaje3/AnimationPlayer.play("idle-loop")
+		$player/AnimationPlayer.play("idle-loop")
 		velocity.z = lerp(velocity.z,0,0.2)
 
 
 	# Stop rotation when player in position
-	if $personaje3.rotation.y >= 0 and rotating_right == true:
+	if $player.rotation.y >= 0 and rotating_right == true:
 		rotating_right = false
-	elif $personaje3.rotation.y <= 0 and rotating_left == true:
+	elif $player.rotation.y <= 0 and rotating_left == true:
 		rotating_left = false
 
-	if $personaje3.rotation.y >= 0 and rotating_right_crouch == true:
+	if $player.rotation.y >= 0 and rotating_right_crouch == true:
 		rotating_right_crouch = false
-	elif $personaje3.rotation.y <= 0 and rotating_left_crouch == true:
+	elif $player.rotation.y <= 0 and rotating_left_crouch == true:
 		rotating_left_crouch = false
 
 	# keep rotation if button released before reach the end of the animation
 	if rotating_right_crouch == true:
-		$personaje3.rotate(Vector3(0, 1, 0), delta * rotspeed)
-		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+		$player.rotate(Vector3(0, 1, 0), delta * rotspeed)
+		$player/AnimationPlayer.play("crouch_walk_forward-loop")
 	elif rotating_left_crouch == true:
-		$personaje3.rotate(Vector3(0, 1, 0), delta * rotspeed)
-		$personaje3/AnimationPlayer.play("crouch_walk_forward-loop")
+		$player.rotate(Vector3(0, 1, 0), delta * rotspeed)
+		$player/AnimationPlayer.play("crouch_walk_forward-loop")
 
 	# keep rotation if button released before reach the end of the animation
 	if rotating_right == true:
-		$personaje3.rotate(Vector3(0, 1, 0), delta * rotspeed)
-		$personaje3/AnimationPlayer.play("walk_forward-loop")
+		$player.rotate(Vector3(0, 1, 0), delta * rotspeed)
+		$player/AnimationPlayer.play("walk_forward-loop")
 	elif rotating_left == true:
-		$personaje3.rotate(Vector3(0, 1, 0), delta * rotspeed)
-		$personaje3/AnimationPlayer.play("walk_forward-loop")
+		$player.rotate(Vector3(0, 1, 0), delta * rotspeed)
+		$player/AnimationPlayer.play("walk_forward-loop")
 
 	# wind = rand_generate.randf_range(-1.0, 1.0)
 
