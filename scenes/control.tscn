@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/gui/titulo2.jpg" type="Texture" id=1]
 [ext_resource path="res://fonts/BebasKai.ttf" type="DynamicFontData" id=2]
@@ -79,14 +79,6 @@ shader_param/velocity = Vector2( 0.067, 0.05 )
 shader_param/fog_color = Color( 0, 0, 0, 1 )
 shader_param/noise = SubResource( 5 )
 
-[sub_resource type="DynamicFont" id=7]
-size = 96
-outline_size = 3
-outline_color = Color( 0, 0, 0, 1 )
-use_mipmaps = true
-use_filter = true
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=8]
 size = 48
 outline_size = 3
@@ -134,66 +126,50 @@ __meta__ = {
 
 [node name="fog2" type="ColorRect" parent="."]
 material = SubResource( 6 )
-anchor_right = 1.0
-anchor_bottom = 1.0
 margin_left = -19.4854
 margin_top = -14.0
-margin_right = 14.5146
-margin_bottom = -34.0
+margin_right = -19.4854
+margin_bottom = 69.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="title _label" type="Label" parent="."]
-visible = false
-anchor_left = 0.005
-anchor_top = -0.005
-anchor_right = 0.005
-anchor_bottom = -0.005
-margin_left = 214.831
-margin_top = 17.7421
-margin_right = 616.831
-margin_bottom = 122.742
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
-custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
-text = "CYBER-RIDER"
+[node name="menu_hbox" type="HBoxContainer" parent="."]
+margin_left = 155.519
+margin_top = 571.997
+margin_right = 828.519
+margin_bottom = 654.997
+custom_constants/separation = 46
+alignment = 1
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="game_button" type="Button" parent="."]
+[node name="game_button" type="Button" parent="menu_hbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-anchor_left = 0.005
-anchor_top = -0.005
-anchor_right = 0.005
-anchor_bottom = -0.005
-margin_left = 107.721
-margin_top = 591.635
-margin_right = 211.722
-margin_bottom = 650.635
+margin_left = 50.0
+margin_right = 154.0
+margin_bottom = 83.0
+focus_neighbour_left = NodePath("../quit_button")
+focus_neighbour_right = NodePath("../lobby_button")
 custom_fonts/font = SubResource( 8 )
-custom_colors/font_color = Color( 0.364706, 0.407843, 0.929412, 1 )
-custom_colors/font_color_hover = Color( 0, 0.133333, 1, 1 )
+custom_colors/font_color = Color( 0.427451, 0.466667, 0.956863, 1 )
+custom_colors/font_color_hover = Color( 0, 0.223529, 0.576471, 1 )
 text = "Start"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="lobby_button" type="Button" parent="."]
+[node name="lobby_button" type="Button" parent="menu_hbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-anchor_left = 0.005
-anchor_top = -0.005
-anchor_right = 0.005
-anchor_bottom = -0.005
-margin_left = 508.331
-margin_top = 590.936
-margin_right = 616.331
-margin_bottom = 649.936
+margin_left = 200.0
+margin_right = 308.0
+margin_bottom = 83.0
+focus_neighbour_left = NodePath("../game_button")
+focus_neighbour_right = NodePath("../options_button")
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 text = "LOBBY"
@@ -202,16 +178,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="options_button" type="Button" parent="."]
+[node name="options_button" type="Button" parent="menu_hbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-anchor_left = 0.005
-anchor_top = -0.005
-anchor_right = 0.005
-anchor_bottom = -0.005
-margin_left = 277.099
-margin_top = 589.553
-margin_right = 418.099
-margin_bottom = 648.553
+margin_left = 354.0
+margin_right = 495.0
+margin_bottom = 83.0
+focus_neighbour_left = NodePath("../lobby_button")
+focus_neighbour_right = NodePath("../quit_button")
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.792157, 0.792157, 0.792157, 1 )
 text = "Options"
@@ -220,16 +193,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="quit_button" type="Button" parent="."]
+[node name="quit_button" type="Button" parent="menu_hbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-anchor_left = 0.005
-anchor_top = -0.005
-anchor_right = 0.005
-anchor_bottom = -0.005
-margin_left = 816.651
-margin_top = 591.377
-margin_right = 898.651
-margin_bottom = 650.377
+margin_left = 541.0
+margin_right = 623.0
+margin_bottom = 83.0
+focus_neighbour_left = NodePath("../options_button")
+focus_neighbour_right = NodePath("../game_button")
 custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.270588, 0.0745098, 0.0745098, 1 )
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
@@ -256,11 +226,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="mouse_entered" from="game_button" to="." method="_on_game_button_mouse_entered"]
-[connection signal="pressed" from="game_button" to="." method="_on_game_button_pressed"]
-[connection signal="mouse_entered" from="lobby_button" to="." method="_on_lobby_button_mouse_entered"]
-[connection signal="pressed" from="lobby_button" to="." method="_on_lobby_button_pressed"]
-[connection signal="mouse_entered" from="options_button" to="." method="_on_options_button_mouse_entered"]
-[connection signal="pressed" from="options_button" to="." method="_on_options_button_pressed"]
-[connection signal="mouse_entered" from="quit_button" to="." method="_on_quit_button_mouse_entered"]
-[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="mouse_entered" from="menu_hbox/game_button" to="." method="_on_game_button_mouse_entered"]
+[connection signal="pressed" from="menu_hbox/game_button" to="." method="_on_game_button_pressed"]
+[connection signal="mouse_entered" from="menu_hbox/lobby_button" to="." method="_on_lobby_button_mouse_entered"]
+[connection signal="pressed" from="menu_hbox/lobby_button" to="." method="_on_lobby_button_pressed"]
+[connection signal="mouse_entered" from="menu_hbox/options_button" to="." method="_on_options_button_mouse_entered"]
+[connection signal="pressed" from="menu_hbox/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="mouse_entered" from="menu_hbox/quit_button" to="." method="_on_quit_button_mouse_entered"]
+[connection signal="pressed" from="menu_hbox/quit_button" to="." method="_on_quit_button_pressed"]
