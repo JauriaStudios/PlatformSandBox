@@ -10,7 +10,7 @@ var roaming_walk = true
 var walking = false
 var roaming_walk_timer
 
-var speed = Vector3(0.0, 6.0, 12.0)
+var speed = Vector3(0.0, 2.0, 4.0)
 var velocity = Vector3.ZERO
 
 onready var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -34,7 +34,7 @@ func _physics_process(delta):
 	
 	if roaming_walk == true:
 		if !walking:
-			var walk_time = rand_generate.randi_range(0,3)
+			var walk_time = rand_generate.randi_range(0,2)
 			var direction = rand_generate.randi_range(0,1)
 			walking = true
 			roaming_walk_timer.wait_time = walk_time
@@ -44,7 +44,7 @@ func _physics_process(delta):
 			else:
 				velocity.z = -speed.z
 
-	move_and_slide(velocity)
+	velocity = move_and_slide(Vector3(0.0, velocity.y, velocity.z), Vector3.UP)
 			
 func walk_end():
 	velocity.z = 0
