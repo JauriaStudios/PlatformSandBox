@@ -27,13 +27,13 @@ func _on_game_options_button_pressed():
 	pass # Replace with function body.
 
 func _on_video_options_button_pressed():
-	get_tree().change_scene("res://scenes/video.tscn")
+	get_tree().change_scene("res://scenes/menu/video.tscn")
 
 func _on_audio_options_button_pressed():
-	get_tree().change_scene("res://scenes/audio.tscn")
+	get_tree().change_scene("res://scenes/menu/audio.tscn")
 
 func _on_back_options_button_pressed():
-	get_tree().change_scene("res://scenes/control.tscn")
+	get_tree().change_scene("res://scenes/menu/control.tscn")
 
 
 

@@ -46,7 +46,7 @@ var walk_scale = 2.5
 var run_scale = 1.25
 
 
-var Bullet = preload("res://scenes/bullet_test.tscn")
+var Bullet = preload("res://prefabs/bullet_test.tscn")
 
 func _init():
 	shoot_rate_timer = Timer.new()

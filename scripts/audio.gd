@@ -21,7 +21,7 @@ func _on_save_button_mouse_entered():
 	$menu_sfx.play()
 
 func _on_back_options_button_pressed():
-	get_tree().change_scene("res://scenes/options.tscn")
+	get_tree().change_scene("res://scenes/menu/options.tscn")
 
 func _on_soundtest_button_pressed():
-	get_tree().change_scene("res://scenes/sound_test.tscn")
+	get_tree().change_scene("res://scenes/menu/sound_test.tscn")

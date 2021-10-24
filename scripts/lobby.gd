@@ -24,4 +24,4 @@ func _on_back_button_mouse_entered():
 
 
 func _on_back_button_pressed():
-	get_tree().change_scene("res://scenes/control.tscn")
+	get_tree().change_scene("res://scenes/menu/control.tscn")

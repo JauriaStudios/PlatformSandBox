@@ -7,4 +7,4 @@ func _ready():
 #	pass
 
 func _on_Button7_pressed():
-	get_tree().change_scene("res://scenes/control.tscn")
+	get_tree().change_scene("res://scenes/menu/control.tscn")

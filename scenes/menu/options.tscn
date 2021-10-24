@@ -15,26 +15,26 @@ glow_strength = 0.91
 glow_blend_mode = 1
 glow_bicubic_upscale = true
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 96
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="Gradient" id=4]
+[sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.898305, 1 )
 colors = PoolColorArray( 0, 0, 0, 1, 0.871186, 0.871186, 0.871186, 1, 1, 1, 1, 1 )
 
-[sub_resource type="GradientTexture" id=5]
-gradient = SubResource( 4 )
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 5 )
 shader_param/cutoff = 0.0
 shader_param/smooth_size = 1.0
-shader_param/mask = SubResource( 5 )
+shader_param/mask = SubResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=6]
 size = 48
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
@@ -74,7 +74,7 @@ margin_left = 429.0
 margin_top = 52.0
 margin_right = 646.0
 margin_bottom = 157.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -86,7 +86,7 @@ __meta__ = {
 
 [node name="fade_in" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 6 )
+material = SubResource( 5 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -3.0
@@ -113,9 +113,9 @@ __meta__ = {
 
 [node name="game_options_button" type="Button" parent="menu_vbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
-margin_right = 237.0
+margin_right = 236.0
 margin_bottom = 59.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Game"
 flat = true
@@ -126,9 +126,9 @@ __meta__ = {
 [node name="video_options_button" type="Button" parent="menu_vbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 margin_top = 122.0
-margin_right = 237.0
+margin_right = 236.0
 margin_bottom = 181.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Video"
 flat = true
@@ -139,9 +139,9 @@ __meta__ = {
 [node name="audio_options_button" type="Button" parent="menu_vbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 margin_top = 244.0
-margin_right = 237.0
+margin_right = 236.0
 margin_bottom = 303.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Audio"
 flat = true
@@ -152,9 +152,9 @@ __meta__ = {
 [node name="back_options_button" type="Button" parent="menu_vbox"]
 modulate = Color( 1.5, 1.5, 1.5, 1 )
 margin_top = 366.0
-margin_right = 237.0
+margin_right = 236.0
 margin_bottom = 425.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0.741176, 1, 1 )
 text = "Back"
 flat = true

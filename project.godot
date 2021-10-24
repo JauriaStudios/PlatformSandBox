@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="CyberDrome"
-run/main_scene="res://scenes/control.tscn"
+run/main_scene="res://scenes/menu/control.tscn"
 boot_splash/image="res://icon.png"
 boot_splash/fullsize=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
